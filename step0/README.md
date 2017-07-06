@@ -36,3 +36,5 @@ react-dom
 ```js
     npm i --save prop-types react react-dom
 ```
+好了，现在你的项目结构应该大致和[step0](https://github.com/sundaypig/build-react-tutorial/tree/master/step0)差不多了。  
+下一步我将在[step1](https://github.com/sundaypig/build-react-tutorial/tree/master/step1)使用koa和webpack-dev-middleware搭建一个本地服务器并启动一个react页面
