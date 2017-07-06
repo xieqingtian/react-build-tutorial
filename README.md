@@ -6,3 +6,5 @@
 
 # 步骤
 ## [Step0: 安装项目所需依赖包](https://github.com/sundaypig/build-react-tutorial/tree/master/step0)
+## [Step1: 使用koa2启动http服务并显示页面](https://github.com/sundaypig/build-react-tutorial/tree/master/step1)
+## [Step2: 加入热加载功能](https://github.com/sundaypig/build-react-tutorial/tree/master/step2)
