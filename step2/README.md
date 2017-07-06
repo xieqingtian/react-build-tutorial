@@ -187,4 +187,5 @@ if (module.hot) {
     })
 }
 ```
-以上就完成了react热加载的处理，重新启动项目，并尝试修改App.js或者app.less的内容，保存后就可以发现页面内容自动更新了。  
+以上就完成了react热加载的处理，重新启动项目，并尝试修改App.js或者app.less的内容，保存后就可以发现页面内容自动更新了。   
+下一步我将在[step3](https://github.com/sundaypig/build-react-tutorial/tree/master/step3)中引入redux。
