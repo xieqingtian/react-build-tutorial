@@ -56,20 +56,22 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 @connect(mapStateToProps, mapDispatchToProps)
 class App extends Component {
 
-    state = {
-        show: false
-    }
-
     render() {
 
         const { pathname } = this.props.router.location
 
         return (
             <div>
-                <Fade key="/" in={pathname === '/'}><Route key={pathname} exact path="/" component={A} /></Fade>
-                <Fade key="/a" in={pathname === 'a'}><Route key={pathname} exact path="/a" component={A} /></Fade>
-                <Fade key="/b" in={pathname === 'b'}><Route key={pathname} exact path="/b" component={B} /></Fade>
-                <Fade key="/c" in={pathname === 'c'}><Route key={pathname} exact path="/c" component={C} /></Fade>
+                <TransitionGroup>
+                    <CSSTransition key={pathname} timeout={500} classNames="fade">
+                        <Switch>
+                            <Route exact path="/" component={A} />
+                            <Route exact path="/a" component={A} />
+                            <Route exact path="/b" component={B} />
+                            <Route exact path="/c" component={C} />
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
                 <button onClick={() => this.props.linkToA()}>A</button>
                 <button onClick={() => this.props.linkToB()}>B</button>
                 <button onClick={() => this.props.linkToC()}>C</button>
