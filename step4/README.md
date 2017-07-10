@@ -1,5 +1,4 @@
 # 在项目中使用[react-router4](https://reacttraining.com/react-router/)
-## 由于react-transition-group的版本升级了，目前我还没有发现如何与react-router4更好地结合使用，所以现在路由动画缺少了路由组件卸载时的过渡。
 在这一步中我们延续使用[step3](https://github.com/sundaypig/build-react-tutorial/tree/master/step3)的目录结构，并且将计数器的例子去除，新增加使用react-router的简单例子。  
 我们需要用到的库如下  
 [react-router](https://reacttraining.com/react-router/) react的路由实现  
@@ -195,7 +194,7 @@ import styles from './app.less'
 
 const A = props => {
     return (
-        <div style={{ height: 300, width: 400, background: 'yellow' }}>
+        <div style={{ height: 300, width: 400, background: 'yellow', position: 'absolute', top: 0, left: 0 }}>
 
         </div>
     )
@@ -203,7 +202,7 @@ const A = props => {
 
 const B = props => {
     return (
-        <div style={{ height: 300, width: 400, background: 'red' }}>
+        <div style={{ height: 300, width: 400, background: 'red', position: 'absolute', top: 0, left: 0 }}>
 
         </div>
     )
@@ -211,7 +210,7 @@ const B = props => {
 
 const C = props => {
     return (
-        <div style={{ height: 300, width: 400, background: 'green' }}>
+        <div style={{ height: 300, width: 400, background: 'green', position: 'absolute', top: 0, left: 0 }}>
 
         </div>
     )
@@ -236,18 +235,18 @@ class App extends Component {
 
         return (
             <div>
-                <TransitionGroup>
-                    <CSSTransition key={pathname} timeout={500} classNames="fade" unmountOnExit={true} exit={false}>
-                        <div className={styles.container}>
-                            <Switch>
+                <div className={styles.container}>
+                    <TransitionGroup>
+                        <CSSTransition key={pathname} timeout={500} classNames="fade">
+                            <Switch location={this.props.router.location}>
                                 <Route exact path="/" component={A} />
                                 <Route exact path="/a" component={A} />
                                 <Route exact path="/b" component={B} />
                                 <Route exact path="/c" component={C} />
                             </Switch>
-                        </div>
-                    </CSSTransition>
-                </TransitionGroup>
+                        </CSSTransition>
+                    </TransitionGroup>
+                </div>
                 <button onClick={() => this.props.linkToA()}>A</button>
                 <button onClick={() => this.props.linkToB()}>B</button>
                 <button onClick={() => this.props.linkToC()}>C</button>
@@ -260,12 +259,6 @@ export default App
 ```
 然后修改components/app.less文件如下  
 ```css
-:global(.fade) {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 :global(.fade-enter) {
     transform: translateX(-400px);
 }
@@ -275,11 +268,11 @@ export default App
     transition: transform 500ms ease-in;
 }
 
-:global(.fade-leave) {
+:global(.fade-exit) {
     transform: translateX(0px);
 }
 
-:global(.fade-leave):global(.fade-leave-active) {
+:global(.fade-exit):global(.fade-exit-active) {
     transform: translateX(400px);
     transition: transform 500ms ease-in;
 }
@@ -288,6 +281,7 @@ export default App
     position: relative;
     height: 300px;
     width: 400px;
+    overflow: hidden;
 }
 ```
 现在重新启动一下项目看看效果吧。

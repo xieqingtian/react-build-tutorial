@@ -10,7 +10,7 @@ import styles from './app.less'
 
 const A = props => {
     return (
-        <div style={{ height: 300, width: 400, background: 'yellow' }}>
+        <div style={{ height: 300, width: 400, background: 'yellow', position: 'absolute', top: 0, left: 0 }}>
 
         </div>
     )
@@ -18,7 +18,7 @@ const A = props => {
 
 const B = props => {
     return (
-        <div style={{ height: 300, width: 400, background: 'red' }}>
+        <div style={{ height: 300, width: 400, background: 'red', position: 'absolute', top: 0, left: 0 }}>
 
         </div>
     )
@@ -26,7 +26,7 @@ const B = props => {
 
 const C = props => {
     return (
-        <div style={{ height: 300, width: 400, background: 'green' }}>
+        <div style={{ height: 300, width: 400, background: 'green', position: 'absolute', top: 0, left: 0 }}>
 
         </div>
     )
@@ -51,18 +51,18 @@ class App extends Component {
 
         return (
             <div>
-                <TransitionGroup>
-                    <CSSTransition key={pathname} timeout={500} classNames="fade" unmountOnExit={true} exit={false}>
-                        <div className={styles.container}>
-                            <Switch>
+                <div className={styles.container}>
+                    <TransitionGroup>
+                        <CSSTransition key={pathname} timeout={500} classNames="fade">
+                            <Switch location={this.props.router.location}>
                                 <Route exact path="/" component={A} />
                                 <Route exact path="/a" component={A} />
                                 <Route exact path="/b" component={B} />
                                 <Route exact path="/c" component={C} />
                             </Switch>
-                        </div>
-                    </CSSTransition>
-                </TransitionGroup>
+                        </CSSTransition>
+                    </TransitionGroup>
+                </div>
                 <button onClick={() => this.props.linkToA()}>A</button>
                 <button onClick={() => this.props.linkToB()}>B</button>
                 <button onClick={() => this.props.linkToC()}>C</button>

@@ -1,9 +1,3 @@
-:global(.fade) {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 :global(.fade-enter) {
     transform: translateX(-400px);
 }
@@ -13,11 +7,11 @@
     transition: transform 500ms ease-in;
 }
 
-:global(.fade-leave) {
+:global(.fade-exit) {
     transform: translateX(0px);
 }
 
-:global(.fade-leave):global(.fade-leave-active) {
+:global(.fade-exit):global(.fade-exit-active) {
     transform: translateX(400px);
     transition: transform 500ms ease-in;
 }
@@ -26,4 +20,5 @@
     position: relative;
     height: 300px;
     width: 400px;
+    overflow: hidden;
 }
