@@ -1,0 +1,17 @@
+:global(.example-enter) {
+    opacity: 0.01;
+}
+
+ :global(.example-enter):global(.example-enter-active) {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+ :global(.example-leave) {
+    opacity: 1;
+}
+
+ :global(.example-leave):global(.example-leave-active) {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+}

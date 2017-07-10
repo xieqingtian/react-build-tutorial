@@ -215,3 +215,4 @@ const configureStore = () => {
 export default configureStore
 ```
 至此，我们在项目中引入了redux管理状态，并且试用了redux-thunk处理异步action，还加入了redux以及react的chrome调试扩展，现在重新启动项目看看吧。
+下一步我将在[step4](https://github.com/sundaypig/build-react-tutorial/tree/master/step4)中加入react-router来完成一个简单的小例子。
