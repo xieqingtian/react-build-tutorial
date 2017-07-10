@@ -11,6 +11,6 @@
 ## [Step1: 使用koa2启动http服务并显示页面](https://github.com/sundaypig/build-react-tutorial/tree/master/step1)
 ## [Step2: 加入热加载功能](https://github.com/sundaypig/build-react-tutorial/tree/master/step2)
 ## [Step3: 在项目中使用redux](https://github.com/sundaypig/build-react-tutorial/tree/master/step3)
-## ~~[Step4: 在项目中使用react-router4](https://github.com/sundaypig/build-react-tutorial/tree/master/step4)~~
+## [Step4: 在项目中使用react-router4](https://github.com/sundaypig/build-react-tutorial/tree/master/step4)
 ## ~~[Step5: 使用Dll插件优化webpack开发构建速度](https://github.com/sundaypig/build-react-tutorial/tree/master/step5)~~
 ## ~~[Step6: 生产环境构建](https://github.com/sundaypig/build-react-tutorial/tree/master/step6)~~
