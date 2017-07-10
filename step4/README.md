@@ -229,6 +229,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 @connect(mapStateToProps, mapDispatchToProps)
 class App extends Component {
 
+    state = {
+        type: false
+    }
+
     render() {
 
         const { pathname } = this.props.router.location
@@ -237,7 +241,7 @@ class App extends Component {
             <div>
                 <div className={styles.container}>
                     <TransitionGroup>
-                        <CSSTransition key={pathname} timeout={500} classNames="fade">
+                        <CSSTransition key={pathname} timeout={500} classNames={this.state.type ? 'slide' : 'fade'} mountOnEnter={true} unmountOnExit={true}>
                             <Switch location={this.props.router.location}>
                                 <Route exact path="/" component={A} />
                                 <Route exact path="/a" component={A} />
@@ -250,6 +254,8 @@ class App extends Component {
                 <button onClick={() => this.props.linkToA()}>A</button>
                 <button onClick={() => this.props.linkToB()}>B</button>
                 <button onClick={() => this.props.linkToC()}>C</button>
+                <br />
+                <button onClick={() => this.setState({ type: !this.state.type })}>{this.state.type ? '渐变' : '滑动'}</button>
             </div>
         )
     }
@@ -259,20 +265,20 @@ export default App
 ```
 然后修改components/app.less文件如下  
 ```css
-:global(.fade-enter) {
+:global(.slide-enter) {
     transform: translateX(-400px);
 }
 
-:global(.fade-enter):global(.fade-enter-active) {
+:global(.slide-enter):global(.slide-enter-active) {
     transform: translateX(0px);
     transition: transform 500ms ease-in;
 }
 
-:global(.fade-exit) {
+:global(.slide-exit) {
     transform: translateX(0px);
 }
 
-:global(.fade-exit):global(.fade-exit-active) {
+:global(.slide-exit):global(.slide-exit-active) {
     transform: translateX(400px);
     transition: transform 500ms ease-in;
 }
@@ -282,6 +288,24 @@ export default App
     height: 300px;
     width: 400px;
     overflow: hidden;
+}
+
+:global(.fade-enter) {
+    opacity: 0.01;
+}
+
+:global(.fade-enter):global(.fade-enter-active) {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+:global(.fade-exit) {
+    opacity: 1
+}
+
+:global(.fade-exit):global(.fade-exit-active) {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
 }
 ```
 现在重新启动一下项目看看效果吧。
