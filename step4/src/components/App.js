@@ -53,7 +53,7 @@ class App extends Component {
             <div>
                 <div className={styles.container}>
                     <TransitionGroup>
-                        <CSSTransition key={pathname} timeout={500} classNames="fade">
+                        <CSSTransition key={pathname} timeout={500} classNames="fade" mountOnEnter={true} unmountOnExit={true}>
                             <Switch location={this.props.router.location}>
                                 <Route exact path="/" component={A} />
                                 <Route exact path="/a" component={A} />
