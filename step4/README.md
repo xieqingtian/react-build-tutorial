@@ -1,5 +1,5 @@
 # 在项目中使用[react-router4](https://reacttraining.com/react-router/)
-## 由于react-transition-group的版本升级了，目前我还没有发现如何与react-router4结合使用，所以路由动画的实现暂时搁置。
+## 由于react-transition-group的版本升级了，目前我还没有发现如何与react-router4更好地结合使用，所以现在路由动画缺少了路由组件卸载时的过渡。
 在这一步中我们延续使用[step3](https://github.com/sundaypig/build-react-tutorial/tree/master/step3)的目录结构，并且将计数器的例子去除，新增加使用react-router的简单例子。  
 我们需要用到的库如下  
 [react-router](https://reacttraining.com/react-router/) react的路由实现  
