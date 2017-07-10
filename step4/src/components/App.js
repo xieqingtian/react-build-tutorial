@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 import CSSTransition from 'react-transition-group/CSSTransition'
-import './app.less'
+import styles from './app.less'
 
 
 const A = props => {
@@ -32,17 +32,6 @@ const C = props => {
     )
 }
 
-const Fade = ({ children, ...props }) => (
-    <CSSTransition
-        classNames="fade"
-        timeout={500}
-        {...props}
-    >
-        {children}
-    </CSSTransition>
-)
-
-
 const mapStateToProps = (state, ownProps) => {
     return state
 }
@@ -63,13 +52,15 @@ class App extends Component {
         return (
             <div>
                 <TransitionGroup>
-                    <CSSTransition key={pathname} timeout={500} classNames="fade">
-                        <Switch>
-                            <Route exact path="/" component={A} />
-                            <Route exact path="/a" component={A} />
-                            <Route exact path="/b" component={B} />
-                            <Route exact path="/c" component={C} />
-                        </Switch>
+                    <CSSTransition key={pathname} timeout={500} classNames="fade" unmountOnExit={true} exit={false}>
+                        <div className={styles.container}>
+                            <Switch>
+                                <Route exact path="/" component={A} />
+                                <Route exact path="/a" component={A} />
+                                <Route exact path="/b" component={B} />
+                                <Route exact path="/c" component={C} />
+                            </Switch>
+                        </div>
                     </CSSTransition>
                 </TransitionGroup>
                 <button onClick={() => this.props.linkToA()}>A</button>

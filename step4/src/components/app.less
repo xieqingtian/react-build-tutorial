@@ -1,17 +1,29 @@
+:global(.fade) {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 :global(.fade-enter) {
-  opacity: 0.01;
+    transform: translateX(-400px);
 }
 
 :global(.fade-enter):global(.fade-enter-active) {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
+    transform: translateX(0px);
+    transition: transform 500ms ease-in;
 }
 
 :global(.fade-leave) {
-  opacity: 1;
+    transform: translateX(0px);
 }
 
 :global(.fade-leave):global(.fade-leave-active) {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
+    transform: translateX(400px);
+    transition: transform 500ms ease-in;
+}
+
+.container {
+    position: relative;
+    height: 300px;
+    width: 400px;
 }
