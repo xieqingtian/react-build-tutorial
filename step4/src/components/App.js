@@ -45,6 +45,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 @connect(mapStateToProps, mapDispatchToProps)
 class App extends Component {
 
+    state = {
+        type: false
+    }
+
     render() {
 
         const { pathname } = this.props.router.location
@@ -53,7 +57,7 @@ class App extends Component {
             <div>
                 <div className={styles.container}>
                     <TransitionGroup>
-                        <CSSTransition key={pathname} timeout={500} classNames="fade" mountOnEnter={true} unmountOnExit={true}>
+                        <CSSTransition key={pathname} timeout={500} classNames={this.state.type ? 'slide' : 'fade'} mountOnEnter={true} unmountOnExit={true}>
                             <Switch location={this.props.router.location}>
                                 <Route exact path="/" component={A} />
                                 <Route exact path="/a" component={A} />
@@ -66,6 +70,8 @@ class App extends Component {
                 <button onClick={() => this.props.linkToA()}>A</button>
                 <button onClick={() => this.props.linkToB()}>B</button>
                 <button onClick={() => this.props.linkToC()}>C</button>
+                <br />
+                <button onClick={() => this.setState({ type: !this.state.type })}>{this.state.type ? '渐变' : '滑动'}</button>
             </div>
         )
     }
