@@ -308,4 +308,5 @@ export default App
     transition: opacity 500ms ease-in;
 }
 ```
-现在重新启动一下项目看看效果吧。
+现在重新启动一下项目看看效果吧。  
+在接下来的[step5](https://github.com/sundaypig/build-react-tutorial/tree/master/step5)中我将基于[step4](https://github.com/sundaypig/build-react-tutorial/tree/master/step4)增加dll打包的配置。

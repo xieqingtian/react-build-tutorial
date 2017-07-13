@@ -6,6 +6,7 @@ const devMiddleware = require('./middleware/devMiddleware')
 const path = require('path')
 const Router = require('koa-router')
 const fs = require('fs')
+const serve = require('koa-static')
 
 const router = new Router()
 const app = new Koa()
@@ -28,6 +29,9 @@ app.use(hotMiddleware(compiler, {
     // path: '/__webpack_hmr',
     // heartbeat: 10 * 1000
 }))
+
+//静态文件服务
+app.use(serve(path.join(__dirname, '../dist')))
 
 router.get('/favicon.ico', (ctx, next) => {
     ctx.body = null
