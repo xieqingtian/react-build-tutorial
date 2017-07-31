@@ -198,4 +198,31 @@ module.exports = {
 ```js
 npm run build
 ```  
-打包就完成了，如果打包遇到了错误，请务必将webpack升级到最新版本，或者直接使用本教程相同的依赖版本即可，到此此教程就结束了，希望对大家有所帮助!
+然后我们删除掉生成的html文件中不必要的script标签如下  
+```html
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>react-demo</title>
+    <link href="./main.6ca82690f8f74c7e5adf34cbc71be016.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="root" style="height:100%"></div>
+    <script type="text/javascript" src="./manifest.e9431.js"></script>
+    <script type="text/javascript" src="./vendor.2a787.js"></script>
+    <script type="text/javascript" src="./main.84363.js"></script>
+</body>
+
+</html>
+```  
+其实就是删除了模板文件中的这两个标签
+```html
+<script src="/vendor.dll.js"></script>
+<script src="/bundle.js"></script>
+```  
+到此打包就完成了，如果打包遇到了错误，请务必将webpack升级到最新版本，或者直接使用本教程相同的依赖版本即可，希望对大家有所帮助!
