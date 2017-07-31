@@ -1,0 +1,23 @@
+{
+    "presets": [
+        [
+            "latest",
+            {
+                "modules": false
+            }
+        ],
+        "stage-0",
+        "react"
+    ],
+    "env": {
+        "development": {
+            "plugins": [
+                "react-hot-loader/babel"
+            ]
+        }
+    },
+    "plugins": [
+        "transform-runtime",
+        "transform-decorators-legacy"
+    ]
+}

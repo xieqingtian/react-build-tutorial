@@ -83,8 +83,6 @@ class App extends Component {
                 <button onClick={() => this.props.linkToC()}>C</button>
                 <br />
                 <button onClick={() => this.setState({ type: !this.state.type })}>{this.state.type ? '渐变' : '滑动'}</button>
-                <button onClick={this.click}></button>
-                <input type="checkbox" onChange={(e)=>{console.log(e.target.checked)}}/>
             </div>
         )
     }
