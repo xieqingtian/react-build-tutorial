@@ -18,6 +18,7 @@
     },
     "plugins": [
         "transform-runtime",
-        "transform-decorators-legacy"
+        "transform-decorators-legacy",
+        ["import", { "style": "css", "libraryName": "antd-mobile" }]
     ]
 }

@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const Visualizer = require('webpack-visualizer-plugin')
+const pxtorem = require('postcss-pxtorem')
 
 module.exports = {
     entry: {
@@ -54,7 +55,25 @@ module.exports = {
         {
             test: /\.css$/,
             use: ['style-loader', 'css-loader'],
-            include: /node_modules/
+            include: /node_modules/,
+            exclude: path.join(__dirname, '../node_modules/antd-mobile')
+        },
+        {
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                'css-loader',
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: [pxtorem({
+                            rootValue: 75,
+                            propWhiteList: []
+                        })]
+                    }
+                },
+            ],
+            include: path.join(__dirname, '../node_modules/antd-mobile')
         },
         {
             test: /\.less$/,
@@ -66,7 +85,10 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: [autoprefixer]
+                            plugins: [autoprefixer, pxtorem({
+                                rootValue: 75,
+                                propWhiteList: []
+                            })]
                         }
                     },
                     'less-loader'

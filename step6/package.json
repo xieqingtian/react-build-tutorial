@@ -34,6 +34,7 @@
         "less": "^2.7.2",
         "less-loader": "^4.0.4",
         "postcss-loader": "^2.0.6",
+        "postcss-pxtorem": "^4.0.1",
         "react-hot-loader": "^3.0.0-beta.7",
         "style-loader": "^0.18.2",
         "url-loader": "^0.5.9",
@@ -43,6 +44,8 @@
         "webpack-visualizer-plugin": "^0.1.11"
     },
     "dependencies": {
+        "antd-mobile": "^1.6.2",
+        "babel-plugin-import": "^1.4.0",
         "history": "^4.6.3",
         "prop-types": "^15.5.10",
         "react": "^15.6.1",

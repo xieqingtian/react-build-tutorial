@@ -1,5 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
+const pxtorem = require('postcss-pxtorem')
 
 module.exports = {
     entry: [
@@ -30,11 +32,26 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+                include: /node_modules/,
+                exclude: path.join(__dirname, '../node_modules/antd-mobile')
+            },
+            {
+                test: /\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader?modules&localIdentName=[local]-[hash:base64:5]', // 编译css文件的loader并开启css-modules功能
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [pxtorem({
+                                rootValue: 75,
+                                propWhiteList: []
+                            })]
+                        }
+                    },
                 ],
-                exclude: /node_modules/
+                include: path.join(__dirname, '../node_modules/antd-mobile')
             },
             {
                 test: /\.less$/,
@@ -42,6 +59,15 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader?&modules&localIdentName=[local]-[hash:base64:5]', // 编译less文件的loader并开启css-modules功能
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [autoprefixer, pxtorem({
+                                rootValue: 75,
+                                propWhiteList: []
+                            })]
+                        }
+                    },
                     'less-loader'
                 ],
             },
