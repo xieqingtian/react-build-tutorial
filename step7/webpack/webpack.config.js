@@ -26,7 +26,7 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: ['react-hot-loader/webpack', 'awesome-typescript-loader'], // 开启编译缓存
+                use: ['react-hot-loader/webpack', 'awesome-typescript-loader'],
                 exclude: /node_modules/
             },
             {

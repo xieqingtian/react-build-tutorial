@@ -32,7 +32,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.tsx?$/,
-            use: 'awesome-typescript-loader', //编译js文件的loader,
+            use: 'awesome-typescript-loader?module=es6', //编译js文件的loader,
             exclude: /node_modules/
         },
         {
