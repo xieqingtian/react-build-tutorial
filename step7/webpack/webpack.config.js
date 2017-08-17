@@ -1,13 +1,12 @@
 const path = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
-const pxtorem = require('postcss-pxtorem')
 
 module.exports = {
     entry: [
         'react-hot-loader/patch', // 开启 React 代码的模块热替换(HMR)
         'webpack-hot-middleware/client', // 当发生热更新时控制台会有提示
-        path.join(__dirname, '../src/index.js')// 入口文件
+        path.join(__dirname, '../src/index.tsx')// 入口文件
     ],
     output: {
         filename: 'bundle.js', // 打包后的文件名
@@ -15,10 +14,10 @@ module.exports = {
         path: path.join(__dirname, '/'), // 打包后的文件存储位置
         publicPath: '/'
     },
-
+    target: 'web',
     resolve: {
         modules: [path.join(__dirname, '../node_modules')], // 优化webpack文件搜索范围
-        extensions: ['.web.js', '.jsx', '.js', '.json']
+        extensions: ['.web.js', '.jsx', '.js', '.tsx', '.json']
     },
 
     devtool: 'cheap-module-eval-source-map', // 开启生成source-map文件功能便于代码调试
@@ -26,32 +25,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                use: ['babel-loader?cacheDirectory'], // 开启编译缓存
+                test: /\.tsx?$/,
+                use: ['react-hot-loader/webpack', 'awesome-typescript-loader'], // 开启编译缓存
                 exclude: /node_modules/
             },
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
-                include: /node_modules/,
-                exclude: path.join(__dirname, '../node_modules/antd-mobile')
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: [pxtorem({
-                                rootValue: 75,
-                                propWhiteList: []
-                            })]
-                        }
-                    },
-                ],
-                include: path.join(__dirname, '../node_modules/antd-mobile')
+                include: /node_modules/
             },
             {
                 test: /\.less$/,
@@ -62,10 +43,7 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: [autoprefixer, pxtorem({
-                                rootValue: 75,
-                                propWhiteList: []
-                            })]
+                            plugins: [autoprefixer]
                         }
                     },
                     'less-loader'
