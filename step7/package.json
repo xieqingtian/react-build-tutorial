@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node ./server/server.js",
         "dll": "webpack --config ./webpack/webpack.config.dll.js",
-        "build": "set NODE_ENV=production&& webpack --progress --colors --config ./webpack/webpack.config.prod.js"
+        "build": "rimraf build&& set NODE_ENV=production&& webpack --progress --colors --config ./webpack/webpack.config.prod.js"
     },
     "keywords": [
         "react",

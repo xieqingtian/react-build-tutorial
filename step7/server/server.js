@@ -33,10 +33,6 @@ app.use(hotMiddleware(compiler, {
 //静态文件服务
 app.use(serve(path.join(__dirname, '../dist')))
 
-router.get('/favicon.ico', (ctx, next) => {
-    ctx.body = null
-})
-
 //渲染页面
 router.get('*', async (ctx, next) => {
     const htmlFile = await new Promise((resolve, reject) => {
