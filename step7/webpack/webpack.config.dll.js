@@ -5,7 +5,12 @@ module.exports = {
     entry: {
         vendor: [
             'react',
-            'react-dom'
+            'react-dom',
+            'mobx-react',
+            'qs',
+            'axios',
+            'react-router-dom',
+            'mobx'
         ]
     },
     output: {

@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "node ./server/server.js",
-        "dll": "webpack --config ./webpack/webpack.config.dll.js",
+        "dll": "rimraf dist&& webpack --config ./webpack/webpack.config.dll.js",
         "build": "rimraf build&& set NODE_ENV=production&& webpack --progress --colors --config ./webpack/webpack.config.prod.js"
     },
     "keywords": [
