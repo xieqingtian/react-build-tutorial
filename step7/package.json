@@ -32,6 +32,7 @@
         "koa-static": "^4.0.1",
         "less": "^2.7.2",
         "less-loader": "^4.0.5",
+        "mobx-formatters": "^1.0.2",
         "postcss-loader": "^2.0.6",
         "postcss-pxtorem": "^4.0.1",
         "react-hot-loader": "^3.0.0-beta.7",

@@ -1,3 +1,9 @@
+var mobx = require('mobx').default
+if (__DEV__) {
+    var installDevTools = require('mobx-formatters').default
+    installDevTools(mobx)
+}
+
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'

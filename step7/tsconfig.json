@@ -12,7 +12,6 @@
         "noImplicitReturns": false,
         "removeComments": true,
         "strictNullChecks": false,
-        "outDir": "build",
         "lib": [
             "es6",
             "es7",

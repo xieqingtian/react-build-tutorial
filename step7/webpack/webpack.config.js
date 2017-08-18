@@ -26,7 +26,7 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: ['react-hot-loader/webpack', 'awesome-typescript-loader'],
+                use: ['react-hot-loader/webpack', 'awesome-typescript-loader?module=es6'],
                 exclude: /node_modules/
             },
             {
@@ -67,7 +67,7 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),//报错时不退出webpack进程
         new webpack.HotModuleReplacementPlugin(),//代码热替换
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"development"'//用于区分开发和生产环境
+            __DEV__: JSON.stringify(process.env.NODE_ENV !== 'production')//用于区分开发和生产环境
         }),
         new webpack.DllReferencePlugin({
             context: __dirname,

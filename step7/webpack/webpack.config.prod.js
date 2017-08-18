@@ -32,7 +32,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.tsx?$/,
-            use: 'awesome-typescript-loader?module=es6', //编译js文件的loader,
+            use: 'awesome-typescript-loader', //编译js文件的loader,
             exclude: /node_modules/
         },
         {
@@ -74,7 +74,7 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(), //报错时不退出webpack进程
         new webpack.optimize.ModuleConcatenationPlugin(),//开启webpack3范围提升
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"' //用于区分开发和生产环境
+            __DEV__: JSON.stringify(process.env.NODE_ENV !== 'production') //用于区分开发和生产环境
         }),
         new webpack.optimize.UglifyJsPlugin({
             beautify: false, //最紧凑的输出
