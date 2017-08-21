@@ -1,0 +1,35 @@
+.container {
+    width: 700px;
+    margin: 100px auto;
+    text-align: center;
+    position: relative;
+    .statisticsWrapper {
+        display: flex;
+        height: 60px;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0 30px;
+        p:nth-of-type(1) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+        p:nth-of-type(2) {
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+    img {
+        margin-top: 20px;
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

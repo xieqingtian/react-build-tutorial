@@ -33,6 +33,7 @@
         "less": "^2.7.2",
         "less-loader": "^4.0.5",
         "mobx-formatters": "^1.0.2",
+        "mobx-react-devtools": "^4.2.15",
         "postcss-loader": "^2.0.6",
         "postcss-pxtorem": "^4.0.1",
         "react-hot-loader": "^3.0.0-beta.7",
@@ -53,6 +54,7 @@
         "qs": "^6.5.0",
         "react": "^15.6.1",
         "react-dom": "^15.6.1",
-        "react-router-dom": "^4.1.2"
+        "react-router-dom": "^4.1.2",
+        "react-tap-event-plugin": "^2.0.1"
     }
 }
