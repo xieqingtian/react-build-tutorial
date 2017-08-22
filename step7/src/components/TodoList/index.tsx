@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { observer, inject } from 'mobx-react'
 import { withRouter, RouteComponentProps } from 'react-router-dom'
+import { TransitionMotion } from 'react-motion'
 import AppBar from 'material-ui/AppBar'
 import Paper from 'material-ui/Paper'
 import Footer from '../Footer'
@@ -24,16 +25,16 @@ class TodoList extends React.Component<TodoListProps, any> {
 
         let realTodos = null
 
-        switch(showType){
+        switch (showType) {
             case -1:
-            realTodos = todos
-            break
+                realTodos = todos
+                break
             case 0:
-            realTodos = activeTodos
-            break
+                realTodos = activeTodos
+                break
             case 1:
-            realTodos = completedTodos
-            break
+                realTodos = completedTodos
+                break
             default:
         }
 
