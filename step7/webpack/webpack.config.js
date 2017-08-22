@@ -17,7 +17,7 @@ module.exports = {
     target: 'web',
     resolve: {
         modules: [path.join(__dirname, '../node_modules')], // 优化webpack文件搜索范围
-        extensions: ['.web.js', '.jsx', '.js', '.tsx', '.json']
+        extensions: ['.web.js', '.jsx', '.js', '.tsx', '.ts', '.json']
     },
 
     devtool: 'cheap-module-eval-source-map', // 开启生成source-map文件功能便于代码调试

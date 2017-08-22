@@ -24,7 +24,7 @@ module.exports = {
     resolve: {
         modules: [path.join(__dirname, '../node_modules')], //优化webpack文件搜索范围
         mainFields: ['jsnext:main', 'main'], //优化支持tree-shaking的库
-        extensions: ['.web.js', '.jsx', '.js', '.tsx','.json']
+        extensions: ['.web.js', '.jsx', '.js', '.tsx','.ts','.json']
     },
 
     //devtool: 'cheap-module-eval-source-map',//生产环境需关闭该功能,否则打包后体积会变大
