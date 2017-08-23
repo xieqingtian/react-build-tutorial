@@ -26,6 +26,13 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                include: path.join(__dirname, '../src'),
+                options: { /* Loader options go here */ }
+            },
+            {
+                test: /\.tsx?$/,
                 use: ['react-hot-loader/webpack', 'awesome-typescript-loader?module=es6'],
                 exclude: /node_modules/
             },
