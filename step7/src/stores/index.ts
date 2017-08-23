@@ -1,14 +1,12 @@
 import { observable, computed, action } from 'mobx'
 import { Todo } from '../interfaces/todo'
 
-export class todoStore {
-
-    constructor() { }
+export class TodoStore {
 
     @observable todos: Array<Todo> = [
         { id: '1', complete: false, content: '吃饭' },
         { id: '2', complete: false, content: '睡觉' },
-        { id: '3', complete: false, content: '打豆豆' }
+        { id: '3', complete: false, content: '打豆豆' },
     ]
 
     @observable showType: number = -1
@@ -38,7 +36,7 @@ export class todoStore {
 
     @action.bound
     toggleComplete(id: string): void {
-        const todo = this.todos.find(todo => todo.id === id)
+        const todo = this.todos.find(item => item.id === id)
         todo.complete = !todo.complete
     }
 
@@ -48,4 +46,4 @@ export class todoStore {
     }
 }
 
-export default new todoStore()
+export default new TodoStore()

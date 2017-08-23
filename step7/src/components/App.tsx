@@ -8,7 +8,6 @@ import './app.less'
 
 useStrict(true)
 
-
 @observer
 class App extends React.Component<{}, {}> {
 
@@ -16,7 +15,7 @@ class App extends React.Component<{}, {}> {
         return (
             <Router basename="/">
                 <div>
-                    <Route exact path="/" component={TodoList} />
+                    <Route exact={true} path="/" component={TodoList} />
                     {/* {__DEV__ ? <DevTools /> : null} */}
                 </div>
             </Router>
@@ -25,4 +24,3 @@ class App extends React.Component<{}, {}> {
 }
 
 export default App
-

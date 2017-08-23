@@ -26,7 +26,7 @@ const render = (Component) => {
                 </MuiThemeProvider>
             </Provider>
         </AppContainer>,
-        document.getElementById('root')
+        document.getElementById('root'),
     )
 }
 

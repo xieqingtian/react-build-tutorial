@@ -12,7 +12,7 @@ interface FooterProps {
 }
 
 @observer
-class Footer extends React.Component<FooterProps, any> {
+class Footer extends React.Component<FooterProps, {}> {
 
     @observable content = ''
 
@@ -24,7 +24,7 @@ class Footer extends React.Component<FooterProps, any> {
         this.props.addTodo({
             id: new Date().getTime() + '',
             content: this.content,
-            complete: false
+            complete: false,
         })
         this.content = ''
     }

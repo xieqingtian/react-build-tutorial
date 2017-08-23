@@ -8,20 +8,30 @@ import Footer from '../Footer'
 import TodoItem from '../TodoItem'
 import SideBar from '../SideBar'
 import * as styles from './index.less'
-import { todoStore } from '../../stores'
+import { TodoStore } from '../../stores'
 
-interface TodoListProps extends RouteComponentProps<any> {
-    store: todoStore
+interface TodoListProps extends RouteComponentProps<{}> {
+    store: TodoStore
 }
 
 @inject('store')
 @withRouter
 @observer
-class TodoList extends React.Component<TodoListProps, any> {
+class TodoList extends React.Component<TodoListProps, {}> {
 
     render() {
 
-        const { todos, completedTodos, addTodo, deleteTodo, editTodo, toggleComplete, changeShowType, showType, activeTodos } = this.props.store
+        const {
+            todos,
+            completedTodos,
+            addTodo,
+            deleteTodo,
+            editTodo,
+            toggleComplete,
+            changeShowType,
+            showType,
+            activeTodos,
+         } = this.props.store
 
         let realTodos = null
 
@@ -42,7 +52,15 @@ class TodoList extends React.Component<TodoListProps, any> {
             <div className={styles.container}>
                 <AppBar title="TodoList" showMenuIconButton={false} style={{ textAlign: 'center' }} />
                 <img src={require('../../assets/images/logo.svg')} width="100" alt="react-logo" />
-                {realTodos.map((todo, index) => <TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo} editTodo={editTodo} toggleComplete={toggleComplete} />)}
+                {realTodos.map((todo, index) => (
+                    <TodoItem
+                        key={todo.id}
+                        todo={todo}
+                        deleteTodo={deleteTodo}
+                        editTodo={editTodo}
+                        toggleComplete={toggleComplete}
+                    />
+                ))}
                 <Paper>
                     <div className={styles.statisticsWrapper}>
                         <p>已完成：<span>{completedTodos.length}</span></p>

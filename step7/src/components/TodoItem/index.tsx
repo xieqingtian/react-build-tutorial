@@ -19,7 +19,7 @@ interface TodoItemProps {
 }
 
 @observer
-class TodoItem extends React.Component<TodoItemProps, any> {
+class TodoItem extends React.Component<TodoItemProps, {}> {
 
     @observable editEnable: boolean = false
     @observable content = this.props.todo.content
@@ -56,16 +56,24 @@ class TodoItem extends React.Component<TodoItemProps, any> {
                             ) :
                             (
                                 <div>
-                                    <Checkbox checked={this.props.todo.complete} onCheck={this.handleCheck} style={{ maxWidth: 40, display: 'block' }} />
+                                    <Checkbox
+                                        checked={this.props.todo.complete}
+                                        onCheck={this.handleCheck}
+                                        style={{ maxWidth: 40, display: 'block' }}
+                                    />
                                     <p>{this.props.todo.content}</p>
                                 </div>
                             )
                     }
                     <div>
-                        <IconButton tooltip={this.editEnable ? "确定" : "编辑"} tooltipPosition="top-right">
-                            {this.editEnable ? <ActionCheck onClick={this.toggleEditState} /> : <ActionEdit onClick={this.toggleEditState} />}
+                        <IconButton tooltip={this.editEnable ? '确定' : '编辑'} tooltipPosition="top-right">
+                            {this.editEnable ?
+                                <ActionCheck onClick={this.toggleEditState} /> :
+                                <ActionEdit onClick={this.toggleEditState} />}
                         </IconButton>
-                        <IconButton onClick={this.deleteTodo} tooltip="删除" tooltipPosition="top-right"><ActionDelete /></IconButton>
+                        <IconButton onClick={this.deleteTodo} tooltip="删除" tooltipPosition="top-right">
+                            <ActionDelete />
+                        </IconButton>
                     </div>
                 </div>
             </Paper>
