@@ -8,10 +8,14 @@
         "dll": "rimraf dist&& webpack --config ./webpack/webpack.config.dll.js",
         "build": "rimraf build&& set NODE_ENV=production&& webpack --progress --colors --config ./webpack/webpack.config.prod.js"
     },
-    "keywords": ["react", "mobx"],
+    "keywords": [
+        "react",
+        "mobx"
+    ],
     "author": "sundaypig",
     "license": "ISC",
     "devDependencies": {
+        "@types/jquery": "^3.2.12",
         "@types/material-ui": "^0.18.0",
         "@types/node": "^8.0.23",
         "@types/react": "^16.0.2",
@@ -50,6 +54,7 @@
     },
     "dependencies": {
         "axios": "^0.16.2",
+        "jquery": "^3.2.1",
         "material-ui": "^0.19.0",
         "mobx": "^3.2.2",
         "mobx-react": "^4.2.2",

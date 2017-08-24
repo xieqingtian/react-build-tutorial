@@ -18,9 +18,7 @@ interface TodoListProps extends RouteComponentProps<{}> {
 @withRouter
 @observer
 class TodoList extends React.Component<TodoListProps, {}> {
-
     render() {
-
         const {
             todos,
             completedTodos,
@@ -31,7 +29,7 @@ class TodoList extends React.Component<TodoListProps, {}> {
             changeShowType,
             showType,
             activeTodos,
-         } = this.props.store
+        } = this.props.store
 
         let realTodos = null
 
@@ -50,21 +48,33 @@ class TodoList extends React.Component<TodoListProps, {}> {
 
         return (
             <div className={styles.container}>
-                <AppBar title="TodoList" showMenuIconButton={false} style={{ textAlign: 'center' }} />
-                <img src={require('../../assets/images/logo.svg')} width="100" alt="react-logo" />
-                {realTodos.map((todo, index) => (
+                <AppBar
+                    title="TodoList"
+                    showMenuIconButton={false}
+                    style={{ textAlign: 'center' }}
+                />
+                <img
+                    src={require('../../assets/images/logo.svg')}
+                    width="100"
+                    alt="react-logo"
+                />
+                {realTodos.map((todo, index) =>
                     <TodoItem
                         key={todo.id}
                         todo={todo}
                         deleteTodo={deleteTodo}
                         editTodo={editTodo}
                         toggleComplete={toggleComplete}
-                    />
-                ))}
+                    />,
+                )}
                 <Paper>
                     <div className={styles.statisticsWrapper}>
-                        <p>已完成：<span>{completedTodos.length}</span></p>
-                        <p>总数：<span>{todos.length}</span></p>
+                        <p>
+                            已完成：<span>{completedTodos.length}</span>
+                        </p>
+                        <p>
+                            总数：<span>{todos.length}</span>
+                        </p>
                     </div>
                 </Paper>
                 <Footer addTodo={addTodo} />
