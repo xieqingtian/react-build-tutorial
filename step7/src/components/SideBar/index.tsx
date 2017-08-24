@@ -12,13 +12,19 @@ class SideBar extends React.Component<SideBarProps, {}> {
     render() {
         return (
             <div className={styles.container}>
-                <FloatingActionButton onClick={(): void => this.props.changeShowType(1)}>
+                <FloatingActionButton
+                    onClick={(): void => this.props.changeShowType(1)}
+                >
                     <span>已完成</span>
                 </FloatingActionButton>
-                <FloatingActionButton onClick={(): void => this.props.changeShowType(0)}>
+                <FloatingActionButton
+                    onClick={(): void => this.props.changeShowType(0)}
+                >
                     <span>未完成</span>
                 </FloatingActionButton>
-                <FloatingActionButton onClick={(): void => this.props.changeShowType(-1)}>
+                <FloatingActionButton
+                    onClick={(): void => this.props.changeShowType(-1)}
+                >
                     <span>所有</span>
                 </FloatingActionButton>
             </div>

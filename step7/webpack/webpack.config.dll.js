@@ -10,19 +10,19 @@ module.exports = {
             'qs',
             'axios',
             'react-router-dom',
-            'mobx'
-        ]
+            'mobx',
+        ],
     },
     output: {
         filename: '[name].dll.js',
         path: path.join(__dirname, '../dist'),
-        library: '[name]_lib'
+        library: '[name]_lib',
     },
     plugins: [
         new webpack.DllPlugin({
             path: path.join(__dirname, '../dist', '[name]-manifest.json'),
             name: '[name]_lib',
-            context: __dirname
-        })
-    ]
+            context: __dirname,
+        }),
+    ],
 }

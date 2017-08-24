@@ -10,7 +10,6 @@ useStrict(true)
 
 @observer
 class App extends React.Component<{}, {}> {
-
     render() {
         return (
             <Router basename="/">

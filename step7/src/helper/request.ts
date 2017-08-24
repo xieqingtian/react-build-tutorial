@@ -6,7 +6,8 @@ const instance = axios.create()
 
 instance.defaults.timeout = 20000 // 设置超时时间
 instance.defaults.baseURL = API_PATH
-instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
+instance.defaults.headers.post['Content-Type'] =
+    'application/x-www-form-urlencoded;charset=UTF-8'
 
 // 请求拦截
 instance.interceptors.request.use(

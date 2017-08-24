@@ -2,8 +2,8 @@ import { observable, computed, action } from 'mobx'
 import { Todo } from '../interfaces/todo'
 
 export class TodoStore {
-
-    @observable todos: Array<Todo> = [
+    @observable
+    todos: Array<Todo> = [
         { id: '1', complete: false, content: '吃饭' },
         { id: '2', complete: false, content: '睡觉' },
         { id: '3', complete: false, content: '打豆豆' },
@@ -11,11 +11,13 @@ export class TodoStore {
 
     @observable showType: number = -1
 
-    @computed get completedTodos(): Array<Todo> {
+    @computed
+    get completedTodos(): Array<Todo> {
         return this.todos.filter(todo => todo.complete === true)
     }
 
-    @computed get activeTodos(): Array<Todo> {
+    @computed
+    get activeTodos(): Array<Todo> {
         return this.todos.filter(todo => todo.complete === false)
     }
 

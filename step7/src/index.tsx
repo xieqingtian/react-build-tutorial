@@ -17,7 +17,7 @@ import todoStore from './stores'
 
 injectTapEventPlugin() // 支持onTouchTap事件
 
-const render = (Component) => {
+const render = Component => {
     ReactDOM.render(
         <AppContainer>
             <Provider store={todoStore}>

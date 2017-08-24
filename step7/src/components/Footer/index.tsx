@@ -13,14 +13,15 @@ interface FooterProps {
 
 @observer
 class Footer extends React.Component<FooterProps, {}> {
-
     @observable content = ''
 
-    @action handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    @action
+    handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         this.content = event.target.value
     }
 
-    @action handleClick = (): void => {
+    @action
+    handleClick = (): void => {
         this.props.addTodo({
             id: new Date().getTime() + '',
             content: this.content,
@@ -30,12 +31,15 @@ class Footer extends React.Component<FooterProps, {}> {
     }
 
     render() {
-
         return (
             <Paper>
                 <div className={styles.footerWrapper}>
                     <label>任务：</label>
-                    <TextField hintText="请建立你的任务" value={this.content} onChange={this.handleChange} />
+                    <TextField
+                        hintText="请建立你的任务"
+                        value={this.content}
+                        onChange={this.handleChange}
+                    />
                     <RaisedButton onClick={this.handleClick}>发送</RaisedButton>
                 </div>
             </Paper>
