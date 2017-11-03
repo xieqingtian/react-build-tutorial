@@ -14,5 +14,5 @@
             "plugins": ["react-hot-loader/babel"]
         }
     },
-    "plugins": ["transform-runtime"]
+    "plugins": ["transform-runtime", "transform-decorators-legacy"]
 }

@@ -4,13 +4,13 @@ import { createEpicMiddleware } from 'redux-observable'
 import createHistory from 'history/createBrowserHistory'
 
 import rootReducer from './rootReducer'
-import rootEpic from '../epics'
+import rootEpic from './rootEpic'
 
 export const history = createHistory()
 const historyMiddleware = routerMiddleware(history)
 const epicMiddleware = createEpicMiddleware(rootEpic)
 
-const configureStore = () => {
+export const configureStore = () => {
     const middlewares = [historyMiddleware, epicMiddleware]
 
     const enhancers = [applyMiddleware(...middlewares)]
@@ -27,13 +27,11 @@ const configureStore = () => {
             const nextRootReducer = require('./rootReducer').default
             store.replaceReducer(nextRootReducer)
         })
-        module.hot.accept('../epics/index.js', () => {
-            const nextEpic = require('../epics').default
+        module.hot.accept('./rootEpic.js', () => {
+            const nextEpic = require('./rootEpic').default
             epicMiddleware.replaceEpic(nextEpic)
         })
     }
 
     return store
 }
-
-export default configureStore

@@ -9,11 +9,12 @@ const initState = {
     isLogin: false,
 }
 
-export const login = createAction(LOGIN_REQUEST, { username: 'tom' })
+export const login = createAction(LOGIN_REQUEST)
+export const loginSuccess = createAction(LOGIN_SUCCESS)
 
 export const loginReducer = handleActions(
     {
-        LOGIN_SUCCESS: (state, payload) => ({
+        LOGIN_SUCCESS: (state, { payload }) => ({
             username: payload.username,
             isLogin: true,
         }),
