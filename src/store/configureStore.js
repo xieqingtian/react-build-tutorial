@@ -6,7 +6,9 @@ import createHistory from 'history/createBrowserHistory'
 import rootReducer from './rootReducer'
 import rootEpic from './rootEpic'
 
-export const history = createHistory()
+export const history = createHistory({
+    basename: '/',
+})
 const historyMiddleware = routerMiddleware(history)
 const epicMiddleware = createEpicMiddleware(rootEpic)
 

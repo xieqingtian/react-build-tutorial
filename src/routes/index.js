@@ -1,9 +1,9 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, NavLink, withRouter } from 'react-router-dom'
+import { Route, Switch, NavLink } from 'react-router-dom'
 import Login from './Login'
 import Home from './Home'
 
-const App = props => (
+const Nav = () => (
     <div>
         <NavLink exact activeStyle={{ color: 'red' }} to="/">
             /
@@ -12,13 +12,17 @@ const App = props => (
         <NavLink exact activeStyle={{ color: 'red' }} to="/home">
             home
         </NavLink>
-        <Router basename="/">
-            <Switch location={props.location}>
-                <Route exact path="/" component={Login} />
-                <Route exact path="/home" component={Home} />
-            </Switch>
-        </Router>
     </div>
 )
 
-export default withRouter(App)
+const App = () => (
+    <div>
+        <Nav />
+        <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/home" component={Home} />
+        </Switch>
+    </div>
+)
+
+export default App
