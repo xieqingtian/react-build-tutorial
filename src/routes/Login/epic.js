@@ -1,4 +1,6 @@
-import 'rxjs'
+import 'rxjs/add/operator/switchMap'
+import 'rxjs/add/operator/delay'
+import 'rxjs/add/observable/of'
 import { Observable } from 'rxjs/Observable'
 import { LOGIN_REQUEST, loginSuccess } from './module'
 

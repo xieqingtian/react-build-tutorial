@@ -16,6 +16,10 @@ class Login extends Component {
         text: '',
     }
 
+    componentDidMount() {
+        alert(__DEV__)
+    }
+
     handleChange = (e) => {
         this.setState({
             text: e.target.value,

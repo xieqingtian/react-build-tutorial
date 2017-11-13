@@ -3,11 +3,12 @@ const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
     entry: {
         main: path.join(__dirname, '../src/index.js'), // 入口文件
-        vendor: ['react', 'react-dom', 'react-redux'], // 分离第三方库
+        vendor: ['react', 'react-dom'], // 分离第三方库
     },
     output: {
         filename: '[name].[chunkhash:5].js', // 打包后的文件名
@@ -71,6 +72,7 @@ module.exports = {
         new webpack.optimize.ModuleConcatenationPlugin(), // 开启webpack3范围提升功能
         new webpack.DefinePlugin({
             __DEV__: JSON.stringify(process.env.NODE_ENV !== 'production'), // 用于区分开发和生产环境
+            'process.env.NODE_ENV': JSON.stringify('production'),
         }),
         new webpack.optimize.UglifyJsPlugin({
             beautify: false, // 最紧凑的输出
@@ -95,5 +97,8 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest'], // 指定公共 bundle 的名字,加manifest防止vendor的hash值改变。
         }),
+        new BundleAnalyzerPlugin({
+            analyzerPort: 8081,
+        }), // 包体组成分析插件
     ],
 }
