@@ -1,7 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
-// const AutoDllPlugin = require('autodll-webpack-plugin')
+const AutoDllPlugin = require('autodll-webpack-plugin')
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: [
@@ -18,7 +19,7 @@ module.exports = {
     target: 'web',
     resolve: {
         modules: [path.join(__dirname, '../node_modules')], // 优化webpack文件搜索范围
-        extensions: ['.web.js', '.jsx', '.js', '.tsx', '.ts', '.json'],
+        extensions: ['.web.js', '.jsx', '.js', '.tsx', '.ts', '.json'], // 声明导入模块时能省略后缀的文件类型
     },
 
     devtool: 'cheap-module-eval-source-map', // 开启生成source-map文件功能便于代码调试
@@ -62,14 +63,14 @@ module.exports = {
         new webpack.DefinePlugin({
             __DEV__: JSON.stringify(process.env.NODE_ENV !== 'production'), // 用于区分开发和生产环境
         }),
-        // new AutoDllPlugin({
-        //     inject: false,
-        //     debug: true,
-        //     filename: '[name].dll.js',
-        //     context: path.join(__dirname, '..'),
-        //     entry: {
-        //         vender: ['react', 'react-dom'],
-        //     },
-        // }),
+        new AutoDllPlugin({
+            inject: false,
+            debug: false,
+            filename: '[name].bundle.js',
+            context: path.join(__dirname, '..'),
+            entry: {
+                vender: ['react', 'react-dom'],
+            },
+        }),
     ],
 }
