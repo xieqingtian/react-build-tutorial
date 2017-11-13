@@ -31,7 +31,7 @@ class Login extends Component {
             <div>
                 <h1>{this.props.username}</h1>
                 <input type="text" onChange={this.handleChange} />
-                <button onClick={this.handleLogin}>提交</button>
+                <button onClick={this.handleLogin}>提交按钮</button>
             </div>
         )
     }

@@ -69,7 +69,7 @@ module.exports = {
             filename: '[name].bundle.js',
             context: path.join(__dirname, '..'),
             entry: {
-                vender: ['react', 'react-dom'],
+                vendor: ['react', 'react-dom'],
             },
         }),
     ],

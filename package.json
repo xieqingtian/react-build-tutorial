@@ -6,7 +6,6 @@
     "scripts": {
         "start": "node server/index.js",
         "build": "rimraf build&& set NODE_ENV=production&& webpack --progress --colors --display minimal --config webpack/webpack.config.prod.js",
-        "dll": "",
         "lint": "eslint src"
     },
     "author": "sundaypig",
