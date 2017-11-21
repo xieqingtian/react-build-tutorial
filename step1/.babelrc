@@ -1,0 +1,18 @@
+{
+    "presets": [
+        [
+            "env",
+            {
+                "modules": false
+            }
+        ],
+        "react",
+        "stage-0"
+    ],
+    "env": {
+        "development": {
+            "plugins": []
+        }
+    },
+    "plugins": ["transform-runtime", "transform-decorators-legacy"]
+}
